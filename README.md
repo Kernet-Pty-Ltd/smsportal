@@ -57,3 +57,4 @@ smsClient.sendSMS(message)
 ## 💁🏻 Contributing
 
 This is an open source project. Any contribution would be greatly appreciated!
+Rename `.env.example` to `.env` and add your keys.
