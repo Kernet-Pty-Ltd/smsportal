@@ -3,14 +3,16 @@
   "version": "0.0.1",
   "description": "This library simplifies interaction with the SMSPortal API for sending SMS messages.",
   "main": "lib/index.js",
+  "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
   "files": [
     "/lib"
   ],
   "scripts": {
-    "build": "tsc -p . -d",
+    "build": "tsup ./src/index.ts --format cjs,esm --dts",
     "build:publish": "pnpm build && pnpm np --no-tests",
     "test": "vitest",
+    "lint": "tsc",
     "example": "pnpm build && tsc ./example/test.ts && node ./example/test.js"
   },
   "author": "Sivuyile Magutywa",
@@ -25,13 +27,16 @@
     "axios": "^1.5.0"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@types/node": "^20.6.0",
-    "changeset": "^0.2.6",
     "dotenv": "^16.3.1",
     "np": "^8.0.4",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "vitest": "^0.34.4"
+  },
+  "tsup": {
+    "outDir": "lib"
   },
   "publishConfig": {
     "access": "public",
