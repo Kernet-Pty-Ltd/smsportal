@@ -5,11 +5,19 @@ export class SmsPortal {
   private base64Credentials: string;
   private baseUrl: string;
 
-  constructor(public apiKey: string, public apiSecret: string) {
+  /**
+   * @param apiKey 
+   * @param apiSecret 
+   */
+  constructor(private apiKey: string, private apiSecret: string) {
     this.base64Credentials = Buffer.from(`${apiKey}:${apiSecret}`).toString('base64');
     this.baseUrl = 'https://rest.smsportal.com/bulkmessages';
   }
 
+  /**
+   * Send Bulk sms
+   * @param messages 
+   */
   sendSMS(messages: SmsMessage[]): Promise<ApiResponse> {
     const requestData = {
       messages
