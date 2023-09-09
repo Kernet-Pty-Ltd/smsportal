@@ -4,6 +4,7 @@ export type SmsMessage = {
   content: string;
   destination: string;
 }
+
 export type CostBreakdownItem = {
   quantity: number;
   cost: number;
