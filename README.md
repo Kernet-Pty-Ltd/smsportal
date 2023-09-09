@@ -2,7 +2,7 @@
 
 ## ℹ️️ Description
 
-This TypeScript library simplifies interaction with the SMSPortal API for sending SMS messages. It provides a convenient class, `SmsPortal`, that handles the API authentication and sending of SMS messages, making it easy to integrate SMS functionality into your TypeScript or JavaScript applications.
+This TypeScript library simplifies interaction with the [SMSPortal](https://docs.smsportal.com/docs/getting-started) API for sending SMS messages. It provides a convenient class, `SmsPortal`, that handles the API authentication and sending of SMS messages, making it easy to integrate SMS functionality into your TypeScript or JavaScript applications.
 
 <br>
 
@@ -33,15 +33,17 @@ pnpm add @kernet/smsportal
 
 ### Get full details
 ```ts
-import SmsPortal from "@kernet/smsportal";
+import SmsPortal, { SmsMessage , ApiResponse } from "@kernet/smsportal";
 
 const apiKey = 'your-api-key';
 const apiSecret = 'your-api-secret';
 
 const smsClient = new SmsPortal(apiKey, apiSecret);
 
-smsClient.sendSMS('Hello SMS World from NodeJS', 'Your test phone number')
-  .then(response => {
+const messages: SmsMessage[] = [{ content: 'Hello SMS World from NodeJS', destination: phone }]
+
+smsClient.sendSMS(message)
+  .then((response: ApiResponse) => {
     console.log("Success:");
     console.log(response);
   })
