@@ -31,7 +31,7 @@ pnpm add @kernet/smsportal
 
 ### Get full details
 ```ts
-import SmsPortal, { SmsMessage , ApiResponse } from "@kernet/smsportal";
+import { SmsPortal, SmsMessage , ApiResponse } from "@kernet/smsportal";
 
 const apiKey = 'your-api-key';
 const apiSecret = 'your-api-secret';

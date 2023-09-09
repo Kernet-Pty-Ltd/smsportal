@@ -1,4 +1,4 @@
-import SmsPortal, { SmsMessage } from '../lib/';
+import { SmsPortal, SmsMessage } from '../lib/';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
