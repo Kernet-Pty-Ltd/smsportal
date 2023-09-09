@@ -1,6 +1,6 @@
 {
   "name": "@kernet/smsportal",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "This library simplifies interaction with the SMSPortal API for sending SMS messages.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
