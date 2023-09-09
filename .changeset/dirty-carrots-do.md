@@ -1,5 +1,0 @@
----
-"@kernet/smsportal": minor
----
-
-ready
