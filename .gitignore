@@ -1,9 +1,11 @@
 lib
-
+.env
 # Logs
 logs
 *.log
 npm-debug.log*
+
+example/*.js
 
 # nodist config for testing in different versions of node
 .node-version

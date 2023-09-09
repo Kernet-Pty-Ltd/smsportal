@@ -1,32 +1,34 @@
 import SmsPortal from '../src';
-import dotenv from 'dotenv';
+import { beforeEach, describe, expect, test, vi } from 'vitest'
+import * as dotenv from 'dotenv';
 import axios from 'axios';
 
 // Load environment variables from .env file
 dotenv.config();
 
 // Mock Axios for testing purposes
-jest.mock('axios');
+vi.mock('axios');
 
 // Define your test cases
 describe('SmsPortal', () => {
   const apiKey = process.env.API_KEY || '';
   const apiSecret = process.env.API_SECRET || '';
+  const phone = process.env.PHONE || '';
   const smsClient = new SmsPortal(apiKey, apiSecret);
-  const messages = [{ content: 'Hello SMS World from NodeJS', destination: 'Your test phone number' }]
+  const messages = [{ content: 'Hello SMS World from NodeJS', destination: phone }]
 
-  it('should send an SMS successfully', async () => {
+  test('should send an SMS successfully', async () => {
     // Mock Axios.post to return a successful response
-    axios.post = jest.fn().mockRejectedValueOnce
-      ({ data: { status: 'success', message: 'SMS sent' } });
+    axios.post = vi.fn().mockRejectedValueOnce
+      ({ sample: 'Hello SMS World from NodeJS' });
 
     const response = await smsClient.sendSMS(messages);
-    expect(response).toEqual({ status: 'success', message: 'SMS sent' });
+    expect(response).toContain({ sample: 'Hello SMS World from NodeJS' });
   });
 
-  it('should handle API errors', async () => {
+  test('should handle API errors', async () => {
     // Mock Axios.post to simulate an API error
-    axios.post = jest.fn().mockRejectedValueOnce({ response: { data: 'API error message' } });
+    axios.post = vi.fn().mockRejectedValueOnce({ response: { data: 'API error message' } });
 
     try {
       await smsClient.sendSMS(messages);
@@ -35,9 +37,9 @@ describe('SmsPortal', () => {
     }
   });
 
-  it('should handle network errors', async () => {
+  test('should handle network errors', async () => {
     // Mock Axios.post to simulate a network error
-    axios.post = jest.fn().mockRejectedValueOnce(new Error('Network error'));
+    axios.post = vi.fn().mockRejectedValueOnce(new Error('Network error'));
 
     try {
       await smsClient.sendSMS(messages);
