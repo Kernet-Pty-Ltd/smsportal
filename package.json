@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsup ./src/index.ts --format cjs,esm --dts",
-    "build:publish": "pnpm build && pnpm np --no-tests",
+    "release": "pnpm run build && changeset publish",
     "test": "vitest",
     "lint": "tsc",
     "example": "pnpm build && tsc ./example/test.ts && node ./example/test.js"
