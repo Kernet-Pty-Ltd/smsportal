@@ -18,13 +18,11 @@ Install using yarn:
 
 ```
 yarn add @kernet/smsportal
-
 ```
 Install using pnpm:
 
 ```
 pnpm add @kernet/smsportal
-
 ```
 
 <br>
@@ -42,6 +40,7 @@ const smsClient = new SmsPortal(apiKey, apiSecret);
 
 const messages: SmsMessage[] = [{ content: 'Hello SMS World from NodeJS', destination: phone }]
 
+// ApiResponse is Implicit
 smsClient.sendSMS(message)
   .then((response: ApiResponse) => {
     console.log("Success:");
