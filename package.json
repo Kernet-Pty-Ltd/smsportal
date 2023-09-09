@@ -1,0 +1,40 @@
+{
+  "name": "@kernet/smsportal",
+  "version": "1.0.0",
+  "description": "This library simplifies interaction with the SMSPortal API for sending SMS messages.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib"
+  ],
+  "scripts": {
+    "build": "tsc -p . -d",
+    "build:publish": "yarn build && yarn np --no-tests",
+    "test": "jest"
+  },
+  "author": "Sivuyile Magutywa",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "Sivuyile Magutywa",
+      "email": "s.magutywa@kernet.co.za"
+    }
+  ],
+  "dependencies": {
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.4",
+    "@types/node": "^20.6.0",
+    "dotenv": "^16.3.1",
+    "jest": "^29.6.4",
+    "np": "^8.0.4",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
